@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint"
+    "lint": "eslint ./src/**/*.{js,ts,vue}"
   },
   "dependencies": {
     "vue": "^3.4.21"
