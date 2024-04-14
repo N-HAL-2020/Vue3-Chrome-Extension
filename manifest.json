@@ -2,12 +2,12 @@
   "manifest_version": 3,
   "name": "Vue3 Chrome Extension",
   "version": "1.0.0",
-  "action": { "default_popup": "src/pages/popup/index.html" },
+  "action": { "default_popup": "src/entrypoints/popup/index.html" },
   "permissions": ["activeTab", "tabs", "storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/scripts/content/index.ts"]
+      "js": ["src/entrypoints/content/index.ts"]
     }
   ]
 }

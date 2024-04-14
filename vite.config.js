@@ -9,8 +9,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        popup: 'src/pages/popup/index.html',
-        content: 'src/scripts/content/index.ts',
+        popup: 'src/entrypoints/popup/index.html',
+        content: 'src/entrypoints/content/index.ts',
       },
     },
   },
