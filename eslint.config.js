@@ -15,6 +15,7 @@ const tsEslintConfig = {
   },
   files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
   languageOptions: {
+    parser: vueParser,
     parserOptions: {
       parser: tsEslintParser,
       project: true,
@@ -23,7 +24,6 @@ const tsEslintConfig = {
   },
   rules: {
     ...tsEslintPlugin.configs['eslint-recommended'].overrides[0].rules,
-    // '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-import-type-side-effects': 'error',
   },
 }
@@ -40,10 +40,4 @@ export default [
   tsEslintConfig,
   ...pluginVue.configs['flat/recommended'],
   eslintConfigPrettier,
-  {
-    rules: {},
-    languageOptions: {
-      parser: vueParser,
-    },
-  },
 ]
