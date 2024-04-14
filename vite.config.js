@@ -6,4 +6,11 @@ import manifest from './manifest.json' assert { type: 'json' }
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), crx({ manifest })],
+  build: {
+    rollupOptions: {
+      input: {
+        popup: 'src/pages/popup/index.html',
+      },
+    },
+  },
 })

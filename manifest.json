@@ -1,6 +1,6 @@
 {
-    "manifest_version": 3,
-    "name": "Vue3 Chrome Extension",
-    "version": "1.0.0",
-    "action": { "default_popup": "index.html" }
-  }
+  "manifest_version": 3,
+  "name": "Vue3 Chrome Extension",
+  "version": "1.0.0",
+  "action": { "default_popup": "src/pages/popup/index.html" }
+}

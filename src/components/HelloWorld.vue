@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-defineProps({
-  // eslint-disable-next-line vue/require-default-prop
-  msg: String,
-})
+type Props = {
+  msg: string
+}
 
+const { msg } = defineProps<Props>()
 const count = ref(0)
 </script>
 
