@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import HelloWorld from '../../components/HelloWorld.vue'
-import ClipBoard from '../../helper/ClipBoard.vue'
+import ClipBoard from '../../helper/clipBoard.vue'
 
 const responseData = ref<null>(null)
 
@@ -16,15 +15,15 @@ const onClick = () => {
 // TODO クリップボード機能の実装
 const setupClipboardListener = () => {
   chrome.runtime.onMessage.addListener(function (message) {
-    if (message.command == 'copy') {
-      navigator.clipboard.writeText(message.text).then(
-        function () {
-          /* clipboard successfully set */
-        },
-        function () {
-          /* clipboard write failed */
-        }
-      )
+    if (message.command === 'copy') {
+      navigator.clipboard
+        .writeText(message.text)
+        .then(() => {
+          console.log('Copied to clipboard')
+        })
+        .catch((err) => {
+          console.error('Failed to copy: ', err)
+        })
     }
   })
 }
@@ -42,7 +41,6 @@ onMounted(() => {
     {{ responseData }}
   </div>
   <div v-else>No response data</div>
-  <HelloWorld msg="Vite + Vue" />
   <ClipBoard />
 </template>
 
@@ -60,6 +58,3 @@ onMounted(() => {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
-
-function ref(arg0: null) { throw new Error('Function not implemented.') } function onMounted(arg0: () => void) { throw new Error('Function not
-implemented.') }
