@@ -7,8 +7,10 @@ const responseData = ref<null>(null)
 const onClick = () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs: any) => {
     chrome.tabs.sendMessage(tabs[0].id!, {}, (response: any) => {
-      console.log(response)
       responseData.value = response
+      response.map(function (res: any) {
+        return res
+      })
     })
   })
 }
@@ -16,14 +18,9 @@ const onClick = () => {
 const setupClipboardListener = () => {
   chrome.runtime.onMessage.addListener(function (message) {
     if (message.command === 'copy') {
-      navigator.clipboard
-        .writeText(message.text)
-        .then(() => {
-          console.log('Copied to clipboard')
-        })
-        .catch((err) => {
-          console.error('Failed to copy: ', err)
-        })
+      navigator.clipboard.writeText(message.text)
+    } else {
+      console.log('描画できなかったよん')
     }
   })
 }
