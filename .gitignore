@@ -27,3 +27,19 @@ dist-ssr
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+# Environment
+.env
+.env.*
+
+# Chrome Extension
+*.crx
+*.zip
+*.pem
+web-ext-artifacts/
+
+# Claude Code
+.claude/
+
+# Coverage
+coverage/
